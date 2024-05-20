@@ -19,7 +19,7 @@
 
    ```bash
    git clone https://github.com/Vladimir-Batmanov/CraffCo.git
-   cd graph-app
+   cd CraffCo
    ```
 
 2. Установите зависимости:
