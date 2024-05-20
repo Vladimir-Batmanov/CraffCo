@@ -1,70 +1,115 @@
-# Getting Started with Create React App
+# Проект "Граф для расчета марковских цепей"
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Описание
 
-## Available Scripts
+Этот проект представляет собой веб-приложение для создания и визуализации графов. Вершины графа могут соединяться друг с другом, а также с самими собой, с указанием вероятностей переходов. В будущем этот граф будет использоваться для расчета марковских цепей на серверной стороне.
 
-In the project directory, you can run:
+## Функциональные возможности
 
-### `npm start`
+- Создание вершин графа с произвольным размещением на экране.
+- Соединение вершин графа стрелками с указанием вероятностей переходов.
+- Создание петельных соединений (вершина соединяется сама с собой).
+- Удаление выбранных вершин.
+- Удаление всех вершин.
+- Отображение всех связей между вершинами с вероятностями.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Установка
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Склонируйте репозиторий:
 
-### `npm test`
+   ```bash
+   git clone https://github.com/Vladimir-Batmanov/CraffCo.git
+   cd graph-app
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Установите зависимости:
 
-### `npm run build`
+   ```bash
+   npm install
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Запустите приложение:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```bash
+   npm start
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Использование
 
-### `npm run eject`
+1. Для создания вершины кликните на пустое место в области графа.
+2. Для соединения вершин выберите вершины, поочередно кликая на них, затем нажмите кнопку "Соединить вершины". Введите вероятность перехода в открывшемся модальном окне.
+3. Для создания петли выберите одну вершину и нажмите кнопку "Соединить вершины". Введите вероятность перехода в открывшемся модальном окне.
+4. Для удаления выбранных вершин нажмите кнопку "Удалить вершину".
+5. Для удаления всех вершин нажмите кнопку "Удалить все вершины".
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Структура проекта
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+graph-app/
+│
+├── node_modules/
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── Graph/
+│   │   │   ├── Graph.css
+│   │   │   ├── Graph.js
+│   │   │
+│   │   ├── GraphBlock/
+│   │   │   ├── GraphBlock.css
+│   │   │   ├── GraphBlock.js
+│   │   │
+│   │   ├── GraphControls/
+│   │   │   ├── GraphControls.css
+│   │   │   ├── GraphControls.js
+│   │   │
+│   │   ├── Results/
+│   │       ├── Results.css
+│   │       ├── Results.js
+│   │
+│   ├── App.css
+│   ├── App.js
+│   ├── index.css
+│   ├── index.js
+│   ├── reportWebVitals.js
+│   ├── setupTests.js
+│
+├── .gitignore
+├── package-lock.json
+├── package.json
+└── README.md
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Описание основных файлов и директорий:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **components/Graph/**: Компоненты для отображения и управления графом.
+  - `Graph.css`: Стили для компонента `Graph`.
+  - `Graph.js`: Основной компонент для отображения и управления графом.
+  
+- **components/GraphBlock/**: Компонент, объединяющий `Graph` и `GraphControls`.
+  - `GraphBlock.css`: Стили для компонента `GraphBlock`.
+  - `GraphBlock.js`: Компонент для управления графом и его контролами.
+  
+- **components/GraphControls/**: Компонент для управления графом (добавление, удаление вершин и соединений).
+  - `GraphControls.css`: Стили для компонента `GraphControls`.
+  - `GraphControls.js`: Компонент управления графом.
+  
+- **components/Results/**: Компонент для отображения результатов.
+  - `Results.css`: Стили для компонента `Results`.
+  - `Results.js`: Компонент для отображения результатов расчетов.
+  
+- **App.css**: Основные стили для приложения.
+- **App.js**: Основной компонент приложения.
+- **index.css**: Дополнительные стили.
+- **index.js**: Точка входа в приложение.
+- **reportWebVitals.js**: Скрипт для измерения производительности.
+- **setupTests.js**: Настройки для тестирования.
 
-## Learn More
+## Будущие доработки
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Реализация серверной части для расчета марковских цепей.
+- Интеграция с сервером для передачи данных графа и получения результатов расчета.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Вклад
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Если у вас есть идеи по улучшению проекта, вы можете создать pull request или открыть issue в репозитории.
